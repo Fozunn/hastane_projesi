@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class HastalarConfig(AppConfig):
+class HastaYonetimConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'hastalar'
+    name = 'hasta_yonetim'
