@@ -2,4 +2,4 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Hasta Yönetim Sistemine Hoşgeldiniz!")
+    return render(request, 'hasta_yonetim/ana_sayfa.html')

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hasta Yönetim Sistemi{% endblock %}</title>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 transition-colors duration-300 min-h-screen flex flex-col">
+    <!-- Navbar -->
+    <nav class="bg-blue-800 text-white p-4 transition-colors duration-300">
+        <div class="container mx-auto">
+            <h1 class="text-xl font-bold">🏥 Hasta Yönetim Sistemi</h1>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-8 px-4 flex-grow">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white text-center p-4 transition-colors duration-300 mt-auto">
+        <p>&copy; 2025 Hasta Yönetim Sistemi</p>
+    </footer>
+</body>
+</html>
