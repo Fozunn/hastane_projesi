@@ -1,29 +1,90 @@
 <!DOCTYPE html>
-<html lang="tr" class="dark">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Hasta Yönetim Sistemi{% endblock %}</title>
-    <!-- TailwindCSS CDN -->
+    <title>{% block title %}Ögeyik Hastanesi{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'hasta_yonetim/css/logo-styles.css' %}">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .logo-font {
+            font-family: 'Poppins', sans-serif; 
+        }
+    </style>
 </head>
-<body class="bg-gray-900 transition-colors duration-300 min-h-screen flex flex-col">
-    <!-- Navbar -->
-    <nav class="bg-blue-800 text-white p-4 transition-colors duration-300">
-        <div class="container mx-auto">
-            <h1 class="text-xl font-bold">🏥 Hasta Yönetim Sistemi</h1>
+<body class="bg-gray-50 min-h-screen">
+    
+    <div class="bg-white border-b border-gray-200 py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-center">
+                {% load static %}
+                <div class="flex items-center space-x-4">
+                    <img src="{% static 'hasta_yonetim/images/ogeyik_logo.svg' %}" alt="Ögeyik Hastanesi Logo" class="h-16 w-auto svg-logo-header">
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-800 logo-font">Ögeyik Hastanesi</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="bg-gray-800 text-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+            
+                <div class="flex space-x-8">
+                    <a href="{% url 'ana_sayfa' %}" class="flex items-center px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200 {% if request.resolver_match.url_name == 'ana_sayfa' %}bg-blue-700{% endif %}">
+                        <span class="font-medium">Ana Sayfa</span>
+                    </a>
+                    
+                    <a href="{% url 'doktorlarimiz' %}" class="flex items-center px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200 {% if request.resolver_match.url_name == 'doktorlarimiz' %}bg-blue-700{% endif %}">
+                        <span class="font-medium">Doktorlarımız</span>
+                    </a>
+                    
+                    <a href="{% url 'iletisim' %}" class="flex items-center px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200 {% if request.resolver_match.url_name == 'iletisim' %}bg-blue-700{% endif %}">
+                        <span class="font-medium">İletişim</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    {% load static %}
+                    <a href="https://www.linkedin.com/in/ferhat-özün-ögeyik" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition-colors">
+                        <img src="{% static 'hasta_yonetim/images/linkedin-svgrepo-com.svg' %}" alt="LinkedIn" class="social-icon linkedin-icon">
+                    </a>
+                    <a href="https://www.instagram.com/ferhatozunogeyik/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-200 transition-colors">
+                        <img src="{% static 'hasta_yonetim/images/instagram-svgrepo-com.svg' %}" alt="Instagram" class="social-icon instagram-icon">
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
-
-    <!-- Main Content -->
-    <main class="container mx-auto mt-8 px-4 flex-grow">
+    
+    <main class="flex-grow">
         {% block content %}
         {% endblock %}
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-950 text-white text-center p-4 transition-colors duration-300 mt-auto">
-        <p>&copy; 2025 Hasta Yönetim Sistemi</p>
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <div class="w-10 h-10 bg-gradient-to-r from-blue-600 to-red-500 rounded-full flex items-center justify-center">
+                    <span class="text-white text-xl font-bold">Ö</span>
+                </div>
+                <h3 class="text-xl font-bold logo-font">Ögeyik Hastanesi</h3>
+            </div>
+            <p class="text-gray-400 mb-2">"Sağlığın Özünde"</p>
+            <p class="text-gray-500 text-sm">Ögeyik Hastanesi. Tüm hakları saklıdır.</p>
+        </div>
     </footer>
 </body>
 </html>

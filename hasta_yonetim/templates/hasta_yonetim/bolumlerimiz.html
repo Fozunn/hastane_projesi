@@ -1,0 +1,98 @@
+{% extends 'hasta_yonetim/ana_sablon.html' %}
+
+{% block title %}Bölümlerimiz - Ögeyik Hastanesi{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-gray-800 to-blue-800 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 logo-font">
+            Tıbbi Bölümlerimiz
+        </h1>
+        <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+            6 farklı uzmanlık alanında uzman doktor kadromuzla sağlığınızın her alanında hizmetinizdeyiz
+        </p>
+    </div>
+</section>
+
+<!-- Ana Bölümler -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dahiliye -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="text-center">
+                    <div class="flex items-center justify-center mx-auto mb-4">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Dahiliye</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Genel iç hastalıkları, erişkin sağlığı ve kronik hastalıkların tanı ve tedavisi
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Göz Hastalıkları -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="text-center">
+                    <div class="flex items-center justify-center mx-auto mb-4">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Göz Hastalıkları</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Göz muayenesi ve görme bozuklukları 
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Pediatri -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="text-center">
+                    <div class="flex items-center justify-center mx-auto mb-4">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Pediatri</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Çocuk sağlığı, gelişim takibi ve çocuk hastalıklarının tedavisi
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Genel Cerrahi -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="text-center">
+                    <div class="flex items-center justify-center mx-auto mb-4">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Genel Cerrahi</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Genel cerrahi müdahaleler, ameliyatlar ve cerrahi tedaviler
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Ortopedi -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="text-center">
+                    <div class="flex items-center justify-center mx-auto mb-4">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Ortopedi</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Kemik, eklem, kas ve hareket sistemi hastalıklarının tedavisi
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Kadın Doğum -->
+            <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="text-center">
+                    <div class="flex items-center justify-center mx-auto mb-4">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-3">Kadın Doğum</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Kadın sağlığı, gebelik takibi, doğum ve jinekolojik tedaviler
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

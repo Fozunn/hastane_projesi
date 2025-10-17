@@ -1,0 +1,127 @@
+/* Ögeyik Hastanesi - Logo Stilleri */
+
+/* PNG Logo için arka plan kaldırma - En etkili çözüm */
+.logo-transparent {
+    background: transparent !important;
+    mix-blend-mode: multiply;
+    /* Beyaz arka planı kaldırır, sadece logoyu gösterir */
+    max-height: 4rem; /* 64px */
+    width: auto;
+    padding: 2px;
+    border-radius: 6px;
+}
+
+/* Logo hover efekti */
+.logo-transparent:hover {
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Daha güçlü arka plan temizleme - eğer üstteki yetmezse */
+.logo-no-white-bg {
+    background: transparent !important;
+    filter: 
+        contrast(1.2) 
+        brightness(0.95)
+        drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+    mix-blend-mode: darken;
+}
+
+/* Header SVG Logo Stilleri - Ortala ve Büyük */
+.svg-logo-header {
+    height: 4rem; /* 64px */
+    width: auto;
+    background: transparent !important;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Header SVG Logo Hover Efekti */
+.svg-logo-header:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3));
+}
+
+/* Sosyal Medya İkonları Stilleri */
+.social-icon {
+    width: 1.25rem; /* 20px */
+    height: 1.25rem; /* 20px */
+    filter: brightness(0) invert(1); /* Beyaz yapar */
+    transition: all 0.3s ease;
+}
+
+/* Sosyal Medya Hover Efektleri */
+.social-icon:hover {
+    transform: scale(1.2);
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.3));
+}
+
+/* LinkedIn özel hover */
+.linkedin-icon:hover {
+    filter: brightness(0) invert(27%) sepia(100%) saturate(1000%) hue-rotate(201deg) brightness(92%) contrast(86%);
+}
+
+/* Instagram özel hover */
+.instagram-icon:hover {
+    filter: brightness(0) invert(11%) sepia(100%) saturate(7500%) hue-rotate(295deg) brightness(104%) contrast(200%);
+}
+
+/* Tamamen şeffaf arka plan için */
+.logo-full-transparent {
+    background: rgba(255, 255, 255, 0) !important;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+}
+
+/* En güçlü arka plan kaldırma çözümü */
+.logo-no-bg-final {
+    background: transparent !important;
+    mix-blend-mode: screen;
+    filter: 
+        invert(1) 
+        brightness(0) 
+        contrast(2) 
+        hue-rotate(200deg) 
+        saturate(1.5)
+        invert(1);
+    max-height: 5rem; /* 80px - daha büyük */
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+/* Logo hover efekti */
+.logo-no-bg-final:hover {
+    transform: scale(1.1);
+    filter: 
+        invert(1) 
+        brightness(0) 
+        contrast(2.2) 
+        hue-rotate(200deg) 
+        saturate(1.7)
+        invert(1)
+        drop-shadow(0 4px 12px rgba(37, 99, 235, 0.4));
+}
+
+/* SVG Logo Stilleri - Temiz ve Profesyonel */
+.svg-logo {
+    height: 4rem; /* 64px */
+    width: auto;
+    background: transparent !important;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* SVG Logo Hover Efekti */
+.svg-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3));
+}
+
+/* SVG renk kontrolü - eğer gerekirse */
+.svg-logo-colored {
+    filter: 
+        brightness(1.1) 
+        contrast(1.2) 
+        saturate(1.1);
+}
