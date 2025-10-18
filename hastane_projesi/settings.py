@@ -126,3 +126,34 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# E-posta ayarları - development için console backend kullan (test amaçlı).
+import os
+
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', 'noreply@ogeyik.example')
+
+# Contact form alıcıları (production ortamında bu adrese gerçek e-postalar gidecek)
+# Varsayılan olarak sizin gerçek adresiniz burada sabitlenebilir.
+CONTACT_RECIPIENTS = os.environ.get('CONTACT_RECIPIENTS', 'ferhatozunogeyik@gmail.com').split(',')
+
+# Alternatif: Django Admin uyarıları için ADMINS tanımlayabilirsiniz.
+# ADMINS = [('Ferhat Özün', 'ferhatozunogeyik@gmail.com')]
+
+# Eğer environment'da SMTP bilgileri sağlanmışsa veya EMAIL_BACKEND smtp olarak ayarlanmışsa,
+# gerekli EMAIL_* ayarlarını otomatik yükle.
+if os.environ.get('EMAIL_BACKEND') == 'django.core.mail.backends.smtp.EmailBackend' or os.environ.get('EMAIL_HOST'):
+    EMAIL_HOST = os.environ.get('EMAIL_HOST')
+    EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587)) if os.environ.get('EMAIL_PORT') else 587
+    EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+    # Eğer production'da farklı bir DEFAULT_FROM_EMAIL isterseniz env ile geçin
+    DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', DEFAULT_FROM_EMAIL)
+
+# Production SMTP ayarları environment değişkenleri ile alınacak (gerektiğinde etkinleştirin)
+# EMAIL_HOST = os.environ.get('EMAIL_HOST')
+# EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587)) if os.environ.get('EMAIL_PORT') else None
+# EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
+# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')

@@ -15,5 +15,31 @@
         </p>
     </div>
 </section>
+<!-- Doktor Listesi -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for doktor in doktorlar %}
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <!-- Header band -->
+                <div class="bg-gradient-to-r from-gray-800 to-blue-800 text-white text-center py-6 px-4" style="background: linear-gradient(to right, #1f2937, #1e40af);">
+                    <h3 class="text-lg md:text-xl font-bold tracking-wide">
+                        {% if doktor.unvan %}{{ doktor.unvan }} {% endif %}{{ doktor.ad_soyad }}
+                    </h3>
+                </div>
+                <div class="p-6 text-center">
+                    <p class="text-sm md:text-base font-bold uppercase text-gray-800 mb-auto">{{ doktor.get_bolum_display }}</p>
+                    {% if doktor.bio %}
+                        <p class="text-gray-600 text-sm leading-relaxed">{{ doktor.bio }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-gray-600">Henüz listelenecek doktor bulunmamaktadır.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 {% endblock %}
