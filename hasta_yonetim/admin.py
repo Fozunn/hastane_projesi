@@ -51,7 +51,7 @@ class DoktorAdmin(admin.ModelAdmin):
             'fields': ('ad_soyad', 'unvan', 'bolum', 'bio')
         }),
         ('Medya ve Sıra', {
-            'fields': ('sira', 'aktif')
+            'fields': ('foto', 'sira', 'aktif')
         }),
         ('Zaman Bilgileri', {
             'fields': ('olusturma_tarihi', 'guncelleme_tarihi'),

@@ -1,5 +1,5 @@
 from django import forms
-from .models import IletisimMesaji
+from .models import IletisimMesaji, Doktor
 
 class IletisimFormu(forms.ModelForm):
     class Meta:
@@ -34,3 +34,35 @@ class IletisimFormu(forms.ModelForm):
         # Form alanlarını zorunlu yapalım
         for field in self.fields:
             self.fields[field].required = True
+
+
+class DoktorForm(forms.ModelForm):
+    class Meta:
+        model = Doktor
+        fields = ['ad_soyad', 'unvan', 'bolum', 'bio', 'foto', 'aktif']
+        
+        widgets = {
+            'ad_soyad': forms.TextInput(attrs={
+                'class': 'w-full px-3 py-3 border border-gray-300 rounded-lg text-base leading-6 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-10 transition-all duration-150',
+                'placeholder': 'Doktor adı ve soyadı'
+            }),
+            'unvan': forms.TextInput(attrs={
+                'class': 'w-full px-3 py-3 border border-gray-300 rounded-lg text-base leading-6 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-10 transition-all duration-150',
+                'placeholder': 'Örn: Uzm. Dr., Prof. Dr.'
+            }),
+            'bolum': forms.Select(attrs={
+                'class': 'w-full px-3 py-3 border border-gray-300 rounded-lg text-base leading-6 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-10 transition-all duration-150'
+            }),
+            'bio': forms.Textarea(attrs={
+                'class': 'w-full px-3 py-3 border border-gray-300 rounded-lg text-base leading-6 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-10 transition-all duration-150',
+                'placeholder': 'Doktor hakkında bilgiler...',
+                'rows': 4
+            }),
+            'foto': forms.FileInput(attrs={
+                'class': 'w-full px-3 py-3 border border-gray-300 rounded-lg text-base leading-6 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-10 transition-all duration-150',
+                'accept': 'image/*'
+            }),
+            'aktif': forms.CheckboxInput(attrs={
+                'class': 'w-4 h-4 mt-1'
+            }),
+        }

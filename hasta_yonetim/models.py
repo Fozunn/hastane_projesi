@@ -56,7 +56,8 @@ class Doktor(models.Model):
     unvan = models.CharField(max_length=100, blank=True, verbose_name="Ünvan")
     bolum = models.CharField(max_length=50, choices=BOLUM_SECENEKLERI, verbose_name="Bölüm")
     bio = models.TextField(blank=True, verbose_name="Biyografi")
-    # email, telefon ve foto alanları kaldırıldı - yalnızca görünür bilgiler saklanacak
+    foto = models.ImageField(upload_to='doktor_fotograflari/', null=True, blank=True, verbose_name="Fotoğraf")
+    # email ve telefon alanları kaldırıldı - yalnızca görünür bilgiler saklanacak
     sira = models.PositiveIntegerField(default=0, verbose_name="Sıra")
     aktif = models.BooleanField(default=True, verbose_name="Aktif")
     olusturma_tarihi = models.DateTimeField(default=timezone.now, verbose_name="Oluşturma Tarihi")

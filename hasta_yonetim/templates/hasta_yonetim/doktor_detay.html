@@ -1,0 +1,84 @@
+{% extends 'hasta_yonetim/ana_sablon.html' %}
+
+{% block title %}{{ doktor.ad_soyad }} - Ögeyik Hastanesi{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-r from-gray-800 to-blue-800 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 logo-font">
+            {% if doktor.unvan %}{{ doktor.unvan }} {% endif %}{{ doktor.ad_soyad }}
+        </h1>
+        <p class="text-xl text-blue-100">
+            {{ doktor.get_bolum_display }} Uzmanı
+        </p>
+    </div>
+</section>
+
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                
+                <div class="md:flex">
+
+                    <div class="md:w-1/3 bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-center text-white">
+                        {% if doktor.foto %}
+                            <img src="{{ doktor.foto.url }}" alt="{{ doktor.ad_soyad }}" class="w-56 h-72 rounded-2xl mx-auto mb-6 border-4 border-white shadow-lg object-cover">
+                        {% else %}
+                            <div class="w-56 h-72 bg-white bg-opacity-20 rounded-2xl mx-auto mb-6 flex items-center justify-center border-4 border-white shadow-lg">
+                                <span class="text-7xl text-white">👨‍⚕️</span>
+                            </div>
+                        {% endif %}
+                        
+                        <h2 class="text-2xl font-bold mb-2">
+                            {% if doktor.unvan %}{{ doktor.unvan }} {% endif %}{{ doktor.ad_soyad }}
+                        </h2>
+                        <p class="text-blue-100 text-lg font-medium">
+                            {{ doktor.get_bolum_display }} Uzmanı
+                        </p>
+                    </div>
+                    
+                    <div class="md:w-2/3 p-8">
+                        <div class="mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+                                <svg class="w-6 h-6 mr-2 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                                Biyografi
+                            </h3>
+                            
+                            {% if doktor.bio %}
+                                <div class="text-gray-700 text-lg leading-relaxed">
+                                    {{ doktor.bio|linebreaks }}
+                                </div>
+                            {% else %}
+                                <p class="text-gray-500 text-lg italic">
+                                    Doktor biyografi bilgisi henüz eklenmemiştir.
+                                </p>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-800 mb-2">Uzmanlık Alanı</h4>
+                            <p class="text-blue-700 text-lg font-medium">{{ doktor.get_bolum_display }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 px-8 py-6 border-t border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <a href="{% url 'doktorlarimiz' %}" class="flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                            </svg>
+                            Doktorlarımıza Geri Dön
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

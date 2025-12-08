@@ -1,0 +1,38 @@
+{% extends 'hasta_yonetim/ana_sablon.html' %}
+
+{% block title %}Doktor Sil - Ögeyik Hastanesi{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+    <div class="max-w-md mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Doktor Sil</h1>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="text-center mb-6">
+                {% if doktor.foto %}
+                    <img src="{{ doktor.foto.url }}" alt="{{ doktor.ad_soyad }}" class="w-56 h-72 rounded-2xl mx-auto mb-4 border-4  shadow-lg object-cover">
+                {% else %}
+                    <div class="w-56 h-72 bg-gray-300 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="text-gray-600 text-2xl">👤</span>
+                    </div>
+                {% endif %}
+                
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ doktor.ad_soyad }}</h3>
+                <p class="text-gray-600">{{ doktor.unvan }} - {{ doktor.get_bolum_display }}</p>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="flex justify-between items-center">
+                    <a href="{% url 'doktor_listesi' %}" class="text-gray-600 hover:text-gray-800 font-medium">
+                        ← İptal Et
+                    </a>
+                    
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+                        Sil
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
