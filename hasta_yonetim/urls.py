@@ -12,6 +12,7 @@ urlpatterns = [
     path('doktor-ekle/', views.doktor_ekle, name='doktor_ekle'),
     path('doktor-duzenle/<int:id>/', views.doktor_duzenle, name='doktor_duzenle'),
     path('doktor-sil/<int:id>/', views.doktor_sil, name='doktor_sil'),
+    path('doktor-foto-sil/<int:id>/', views.doktor_foto_sil, name='doktor_foto_sil'),
     
     # Doktor Detay (Ziyaretçiler için)
     path('doktor/<int:id>/', views.doktor_detay, name='doktor_detay'),

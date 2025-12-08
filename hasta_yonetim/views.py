@@ -112,3 +112,18 @@ def doktor_detay(request, id):
         'ilgili_doktorlar': ilgili_doktorlar
     }
     return render(request, 'hasta_yonetim/doktor_detay.html', context)
+
+
+def doktor_foto_sil(request, id):
+    """Doktor fotoğrafını sil"""
+    doktor = get_object_or_404(Doktor, id=id)
+    
+    if doktor.foto:
+        doktor.foto.delete() 
+        doktor.foto = None
+        doktor.save()
+        messages.success(request, f'{doktor.ad_soyad} fotoğrafı başarıyla silindi.')
+    else:
+        messages.error(request, 'Silinecek fotoğraf bulunamadı.')
+    
+    return redirect('doktor_duzenle', id=doktor.id)
